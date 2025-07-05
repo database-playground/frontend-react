@@ -1,7 +1,6 @@
-import { Button } from "../ui/button";
 import { useStytchUser } from "@stytch/react";
-import { NavLink } from "react-router";
 import Brand from "./brand";
+import LoginButton from "./login-button";
 
 export default function Header() {
   const { user, isInitialized } = useStytchUser();
@@ -15,9 +14,7 @@ export default function Header() {
         {(isInitialized && user) ? (
           <p>Hello, {user.name.first_name}</p>
         ) : (
-          <NavLink to="/login">
-            <Button>登入</Button>
-          </NavLink>
+          <LoginButton />
         )}
       </div>
     </div>
