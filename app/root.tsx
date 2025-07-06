@@ -14,6 +14,7 @@ import BaseLayout from "./components/layout/base";
 import { Button } from "./components/ui/button";
 import { UserProvider } from "./context/user-context";
 import ApolloProvider from "./context/apollo-context";
+import { Toaster } from "./components/ui/sonner";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.bunny.net" },
@@ -40,6 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Scripts />
           </UserProvider>
         </ApolloProvider>
+        <Toaster theme="light" />
       </body>
     </html>
   );

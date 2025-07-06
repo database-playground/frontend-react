@@ -5,7 +5,8 @@ import buildUri from "~/lib/build-uri";
 const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-        uri: buildUri('/query')
+        uri: buildUri('/query'),
+        credentials: 'include'
     })
 });
 

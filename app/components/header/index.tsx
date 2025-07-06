@@ -4,6 +4,7 @@ import LoginButton from "./login-button";
 import { useUser } from "~/context/user-context";
 import { Loader } from "lucide-react";
 import Spinner from "../ui/spinner";
+import { UserInfo } from "./user-info";
 
 export default function Header() {
   const { user, isInitialized } = useUser();
@@ -16,7 +17,7 @@ export default function Header() {
       <div>
         {isInitialized ? (
           user ? (
-            <p>Hello, {user.name}</p>
+            <UserInfo user={user} />
           ) : (
             <LoginButton />
           )
