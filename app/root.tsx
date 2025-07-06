@@ -10,10 +10,10 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-import { StytchProvider } from '@stytch/react';
-import { createStytchUIClient } from '@stytch/react/ui';
 import BaseLayout from "./components/layout/base";
 import { Button } from "./components/ui/button";
+import { UserProvider } from "./context/user-context";
+import ApolloProvider from "./context/apollo-context";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.bunny.net" },
@@ -22,10 +22,6 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.bunny.net/css?family=ibm-plex-sans-jp:200,400,600",
   },
 ];
-
-const stytchClient = createStytchUIClient(
-  import.meta.env.VITE_STYTCH_PUBLIC_TOKEN,
-);
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -37,11 +33,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <StytchProvider stytch={stytchClient} assumeHydrated={false}>
-          {children}
-          <ScrollRestoration />
-          <Scripts />
-        </StytchProvider>
+        <ApolloProvider>
+          <UserProvider>
+            {children}
+            <ScrollRestoration />
+            <Scripts />
+          </UserProvider>
+        </ApolloProvider>
       </body>
     </html>
   );
