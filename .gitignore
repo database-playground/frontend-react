@@ -9,3 +9,6 @@
 gql/
 
 .env
+
+# coverage report
+coverage/

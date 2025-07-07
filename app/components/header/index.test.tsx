@@ -25,22 +25,22 @@ describe("Header", () => {
 
   it("shows spinner when not initialized", async () => {
     renderWithUserContext({ user: undefined, isInitialized: false });
-    await expect.element(page.getByTestId("spinner")).toBeVisible();
+    expect(page.getByTestId("spinner")).toBeVisible();
   });
 
   it("shows login button when not logged in", async () => {
     renderWithUserContext({ user: undefined, isInitialized: true });
-    await expect.element(page.getByText("登入")).toBeVisible();
+    expect(page.getByText("登入")).toBeVisible();
   });
 
   it("shows user info when logged in", async () => {
     renderWithUserContext({ user, isInitialized: true });
-    await expect.element(page.getByText("Test User")).toBeVisible();
-    await expect.element(page.getByText("登出")).toBeVisible();
+    expect(page.getByText("Test User")).toBeVisible();
+    expect(page.getByText("登出")).toBeVisible();
   });
 
   it("always shows brand", async () => {
     renderWithUserContext({ user: undefined, isInitialized: false });
-    await expect.element(page.getByText("Database Playground")).toBeVisible();
+    expect(page.getByText("Database Playground")).toBeVisible();
   });
 });

@@ -23,7 +23,7 @@ describe("UserInfo", () => {
   it("renders the user name", async () => {
     render(<UserInfo user={user} />);
 
-    await expect.element(page.getByText("Test User")).toBeVisible();
+    expect(page.getByText("Test User")).toBeVisible();
   });
 
   it("shows success toast and reloads on successful logout", async () => {
@@ -34,7 +34,7 @@ describe("UserInfo", () => {
     const onLogout = vi.fn();
     render(<UserInfo user={user} onLogout={onLogout} />);
 
-    await expect.element(page.getByText("登出")).toBeVisible();
+    expect(page.getByText("登出")).toBeVisible();
 
     // click logout button
     await page.getByText("登出").click();
@@ -59,7 +59,7 @@ describe("UserInfo", () => {
     await page.getByText("登出").click();
 
     await expect.element(page.getByText("無法登出。")).toBeVisible();
-    await expect.element(page.getByText("error message")).toBeVisible();
+    expect(page.getByText("error message")).toBeVisible();
 
     expect(mockFn).toHaveBeenCalledWith(buildUri("/api/auth/logout"), {
       method: "POST",

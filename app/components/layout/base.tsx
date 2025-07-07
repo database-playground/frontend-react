@@ -7,7 +7,7 @@ export default function BaseLayout(
   return (
     <div className="min-h-screen">
       <Header />
-      <main className={cn("mx-auto my-8 max-w-xl", containerClassName)}>
+      <main className={cn("mx-auto my-8 max-w-3xl px-4", containerClassName)}>
         {children}
       </main>
     </div>

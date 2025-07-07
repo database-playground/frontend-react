@@ -10,6 +10,7 @@ export default function Header({ onLogout }: { onLogout?: () => void }) {
 
   return (
     <div
+      data-testid="header"
       className={`
         flex h-12 w-full items-center justify-between border-b
         border-blue-200/20 bg-blue-50/30 px-6 py-2 backdrop-blur-[2px]

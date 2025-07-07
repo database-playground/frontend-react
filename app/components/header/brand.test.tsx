@@ -7,9 +7,7 @@ import { createRoutesStub } from "react-router";
 describe("Brand", () => {
   it("shows title", async () => {
     renderWithRouter(<Brand />);
-    await expect
-      .element(page.getByText("Database Playground"))
-      .toBeInTheDocument();
+    expect(page.getByText("Database Playground")).toBeInTheDocument();
   });
 
   it("can navigate to homepage", async () => {
