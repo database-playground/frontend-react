@@ -6,12 +6,12 @@ import type { BasicUserInfoQuery } from "~/gql/graphql";
 
 export type BasicUserInfo = BasicUserInfoQuery["me"];
 
-export interface UserContext {
+export interface UserContextValue {
   user?: BasicUserInfo;
   isInitialized: boolean;
 }
 
-const userContext = createContext<UserContext>({
+export const UserContext = createContext<UserContextValue>({
   user: undefined,
   isInitialized: false,
 });
@@ -26,7 +26,7 @@ const userQuery = graphql(`
 `);
 
 export function useUser() {
-  const user = useContext(userContext);
+  const user = useContext(UserContext);
   if (!user) {
     throw new Error("UserContext not found");
   }
@@ -38,13 +38,13 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   const { data, loading } = useQuery(userQuery);
 
   return (
-    <userContext.Provider
+    <UserContext.Provider
       value={{
         user: data?.me,
         isInitialized: !loading,
       }}
     >
       {children}
-    </userContext.Provider>
+    </UserContext.Provider>
   );
 }

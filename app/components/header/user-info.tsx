@@ -4,7 +4,7 @@ import type { BasicUserInfo } from "~/context/user-context";
 import buildUri from "~/lib/build-uri";
 import { Button } from "../ui/button";
 
-export function UserInfo({ user }: { user: BasicUserInfo }) {
+export function UserInfo({ user, onLogout }: { user: BasicUserInfo, onLogout?: () => void }) {
   const handleLogout = async () => {
     const res = await fetch(buildUri("/api/auth/logout"), {
       method: "POST",
@@ -18,8 +18,7 @@ export function UserInfo({ user }: { user: BasicUserInfo }) {
       return;
     }
 
-    toast.success("登出成功。");
-    location.reload();
+    onLogout?.();
   };
 
   return (

@@ -4,8 +4,9 @@ import Brand from "./brand";
 import LoginButton from "./login-button";
 import { UserInfo } from "./user-info";
 
-export default function Header() {
+export default function Header({ onLogout }: { onLogout?: () => void }) {
   const { user, isInitialized } = useUser();
+  const handleLogout = onLogout ?? (() => location.reload());
 
   return (
     <div
@@ -20,7 +21,7 @@ export default function Header() {
       <div>
         {isInitialized
           ? (
-            user ? <UserInfo user={user} /> : <LoginButton />
+            user ? <UserInfo user={user} onLogout={handleLogout} /> : <LoginButton />
           )
           : <Spinner className="size-6" />}
       </div>
