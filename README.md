@@ -1,87 +1,58 @@
-# Welcome to React Router!
+# Database Playground 的前端
 
-A modern, production-ready template for building full-stack React applications using React Router.
+## 環境變數設定
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
+```env
+# Database Playground 後端的 base URL
+VITE_BACKEND_URI=https://localhost:8081
 ```
 
-### Development
+## 開發
 
-Start the development server with HMR:
+```shell
+pnpm install
 
-```bash
-npm run dev
+# 啟動 dev server
+pnpm dev
+
+# 啟動 GraphQL codegen
+pnpm codegen:watch
+
+# 啟動 Local SSL Proxy (for Secure cookies)
+pnpm dlx local-ssl-proxy --source 8081 --target 5173
 ```
 
-Your application will be available at `http://localhost:5173`.
+### Linting & Formatting
 
-## Building for Production
+```shell
+# Lint with fix
+pnpm lint:fix
 
-Create a production build:
-
-```bash
-npm run build
+# Format
+pnpm format
 ```
 
-## Deployment
+### 針對正式環境的後端伺服器進行開發
 
-### Docker Deployment
+如果你需要直接針對 `https://api.dbplay.app` 執行請求（有嚴格的 CORS 設定，同時其憑證使用 `__Host` 開頭的 cookie 儲存），則需要另外簽發有效的 TLS certificate。
 
-To build and run using Docker:
+首先 `api.dbplay.app` 有放行 `dev.dbplay.app` 作為公用開發網域，因此您需要將 `dev.dbplay.app` 指向 `127.0.0.1`：
 
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+```shell
+echo "127.0.0.1 dev.dbplay.app" >> /etc/hosts
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+接著，簽發有效的 TLS certificate：
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```plain
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+```shell
+nix run nixpkgs#mkcert -- -install
+nix run nixpkgs#mkcert -- dev.dbplay.app
 ```
 
-## Styling
+最後，在 Local SSL Proxy 中帶入你簽發的 TLS certificate：
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+```shell
+pnpm dlx local-ssl-proxy --source 8082 --target 5173 -k dev.dbplay.app-key.pem -c dev.dbplay.app.pem
+```
 
----
-
-Built with ❤️ using React Router.
+最後前往 `https://dev.dbplay.app:8082` 進行開發。
