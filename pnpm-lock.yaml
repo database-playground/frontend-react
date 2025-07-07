@@ -26,12 +26,6 @@ importers:
       '@react-router/serve':
         specifier: ^7.6.3
         version: 7.6.3(react-router@7.6.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)
-      '@stytch/react':
-        specifier: ^19.6.0
-        version: 19.6.0(@stytch/vanilla-js@5.25.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@stytch/vanilla-js':
-        specifier: ^5.25.1
-        version: 5.25.1
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -41,9 +35,6 @@ importers:
       graphql:
         specifier: ^16.11.0
         version: 16.11.0
-      isbot:
-        specifier: ^5.1.28
-        version: 5.1.28
       lucide-react:
         specifier: ^0.525.0
         version: 0.525.0(react@19.1.0)
@@ -1016,19 +1007,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@stytch/core@2.52.1':
-    resolution: {integrity: sha512-Cko0oPI83ixJUJn5WE/rJ4ypjvhlK7M8hdweqO8PluRNnJ1cbAMTUlpJ/MTGMkbMskZ3cTv+b4k/ZqA/uwt0Pw==}
-
-  '@stytch/react@19.6.0':
-    resolution: {integrity: sha512-BYpktcu1IwWbAztjrzd7LAh4XpBZgKuSk8TpfZErvcr5I4DCXd6rjPBw83qVGYnaD0Hg20wP2HRpahObT7FwIA==}
-    peerDependencies:
-      '@stytch/vanilla-js': ^5.0.0
-      react: '>= 17.0.2'
-      react-dom: '>= 17.0.2'
-
-  '@stytch/vanilla-js@5.25.1':
-    resolution: {integrity: sha512-LLdigUuqMJcWmA388ZciAOkXWF6/QAfY7lsCIXTHA8ht1beB+CuBuO+1irAKO3bhFEdSf/AEoVCoKUfomKlNUQ==}
-
   '@tailwindcss/node@4.1.11':
     resolution: {integrity: sha512-yzhzuGRmv5QyU9qLNg4GTlYI6STedBWRE7NjxP45CsFYYq9taI0zJXZBMqIC/c8fViNLhmrbpSFS57EoxUmD6Q==}
 
@@ -1121,9 +1099,6 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
-
-  '@types/google-one-tap@1.2.6':
-    resolution: {integrity: sha512-REmJsXVHvKb/sgI8DF+7IesMbDbcsEokHBqxU01ENZ8d98UPWdRLhUCtxEm9bhNFFg6PJGy7PNFdvovp0hK3jA==}
 
   '@types/js-yaml@4.0.9':
     resolution: {integrity: sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg==}
@@ -1862,10 +1837,6 @@ packages:
   is-windows@1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
     engines: {node: '>=0.10.0'}
-
-  isbot@5.1.28:
-    resolution: {integrity: sha512-qrOp4g3xj8YNse4biorv6O5ZShwsJM0trsoda4y7j/Su7ZtTTfVXFzbKkpgcSoDrHS8FcTuUwcU04YimZlZOxw==}
-    engines: {node: '>=18'}
 
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
@@ -2676,10 +2647,6 @@ packages:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
 
-  type-fest@4.15.0:
-    resolution: {integrity: sha512-tB9lu0pQpX5KJq54g+oHOLumOx+pMep4RaM6liXh2PKmVRFF+/vAtUP0ZaJ0kOySfVNjF6doBWPHhBhISKdlIA==}
-    engines: {node: '>=16'}
-
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
@@ -2729,10 +2696,6 @@ packages:
   utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
-
-  uuid@8.3.2:
-    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
 
   valibot@0.41.0:
     resolution: {integrity: sha512-igDBb8CTYr8YTQlOKgaN9nSS0Be7z+WRuaeYqGf3Cjz3aKmSnqEmYnkfVjzIuumGqfHpa3fLIvMEAfhrpqN8ng==}
@@ -3973,22 +3936,6 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.44.2':
     optional: true
 
-  '@stytch/core@2.52.1':
-    dependencies:
-      uuid: 8.3.2
-
-  '@stytch/react@19.6.0(@stytch/vanilla-js@5.25.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@stytch/vanilla-js': 5.25.1
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@stytch/vanilla-js@5.25.1':
-    dependencies:
-      '@stytch/core': 2.52.1
-      '@types/google-one-tap': 1.2.6
-      type-fest: 4.15.0
-
   '@tailwindcss/node@4.1.11':
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -4061,8 +4008,6 @@ snapshots:
       vite: 6.3.5(@types/node@20.19.4)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)
 
   '@types/estree@1.0.8': {}
-
-  '@types/google-one-tap@1.2.6': {}
 
   '@types/js-yaml@4.0.9': {}
 
@@ -4863,8 +4808,6 @@ snapshots:
 
   is-windows@1.0.2: {}
 
-  isbot@5.1.28: {}
-
   isexe@2.0.0: {}
 
   isomorphic-ws@5.0.0(ws@8.18.3):
@@ -5617,8 +5560,6 @@ snapshots:
 
   type-fest@0.21.3: {}
 
-  type-fest@4.15.0: {}
-
   type-is@1.6.18:
     dependencies:
       media-typer: 0.3.0
@@ -5657,8 +5598,6 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   utils-merge@1.0.1: {}
-
-  uuid@8.3.2: {}
 
   valibot@0.41.0(typescript@5.8.3):
     optionalDependencies:
