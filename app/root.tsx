@@ -5,6 +5,7 @@ import "./app.css";
 import { Toaster } from "./components/ui/sonner";
 import ApolloProvider from "./context/apollo-context";
 import { UserProvider } from "./context/user-context";
+import { ErrorBoundary as ErrorBoundaryComponent } from "./components/error-boundary";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.bunny.net" },
@@ -41,4 +42,6 @@ export default function App() {
   return <Outlet />;
 }
 
-export { ErrorBoundary } from "./components/error-boundary";
+export function ErrorBoundary(props: Route.ErrorBoundaryProps) {
+  return <ErrorBoundaryComponent {...props} />;
+}
