@@ -7,3 +7,5 @@
 
 # GraphQL
 gql/
+
+.env

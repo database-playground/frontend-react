@@ -1,29 +1,28 @@
-import { useStytchUser } from "@stytch/react";
+import { useUser } from "~/context/user-context";
+import Spinner from "../ui/spinner";
 import Brand from "./brand";
 import LoginButton from "./login-button";
-import { useUser } from "~/context/user-context";
-import { Loader } from "lucide-react";
-import Spinner from "../ui/spinner";
 import { UserInfo } from "./user-info";
 
 export default function Header() {
   const { user, isInitialized } = useUser();
 
   return (
-    <div className="flex justify-between items-center w-full h-12 py-2 px-6 backdrop-blur-[2px] bg-blue-50/30 border-b border-blue-200/20">
+    <div
+      className={`
+        flex h-12 w-full items-center justify-between border-b
+        border-blue-200/20 bg-blue-50/30 px-6 py-2 backdrop-blur-[2px]
+      `}
+    >
       {/* left */}
       <Brand />
       {/* right */}
       <div>
-        {isInitialized ? (
-          user ? (
-            <UserInfo user={user} />
-          ) : (
-            <LoginButton />
+        {isInitialized
+          ? (
+            user ? <UserInfo user={user} /> : <LoginButton />
           )
-        ) : (
-          <Spinner className="size-6" />
-        )}
+          : <Spinner className="size-6" />}
       </div>
     </div>
   );

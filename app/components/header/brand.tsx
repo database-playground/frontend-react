@@ -3,11 +3,15 @@ import { NavLink } from "react-router";
 export default function Brand() {
   return (
     <NavLink to="/">
-      <button className="flex gap-2 items-center font-medium text-foreground cursor-pointer">
+      <button
+        className={`
+          flex cursor-pointer items-center gap-2 font-medium text-foreground
+        `}
+      >
         <img
           src="https://assets.dbplay.app/logo.svg"
           alt="logo"
-          className="w-4 h-4"
+          className="h-4 w-4"
         />
         Database Playground
       </button>
